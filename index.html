@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15 Anos de Izabelle Souza - Fundo do Mar</title>
+    <!-- Google Fonts para tipografia elegante -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome para ícones temáticos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Estilos Gerais e Variáveis Modernizadas */
+        :root {
+            --primary-deep: #020813;
+            --ocean-blue: #081b33;
+            --ocean-medium: #112a4d;
+            --turquese: #00f2fe;
+            --light-turquese: #64ffda;
+            --gold: #dfac40;
+            --gold-light: #fcd34d;
+            --gold-gradient: linear-gradient(135deg, #fcd34d 0%, #dfac40 50%, #b47e11 100%);
+            --text-light: #f1f5f9;
+            --text-gray: #94a3b8;
+            --glass-bg: rgba(10, 25, 47, 0.75);
+            --glass-border: rgba(100, 255, 218, 0.25);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(180deg, #020813 0%, #05162e 40%, #0a254a 70%, #0f3566 100%);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            position: relative;
+            padding: 40px 15px;
+        }
+
+        /* Efeito de Ondas de Luz no Fundo */
+        .ocean-floor {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% -20%, rgba(0, 242, 254, 0.15) 0%, transparent 50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Bolhas Avançadas */
+        .bubbles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, rgba(100, 255, 218, 0.1) 70%);
+            box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: rise 12s infinite linear;
+        }
+
+        @keyframes rise {
+            0% {
+                bottom: -50px;
+                transform: translateX(0) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                bottom: 110%;
+                transform: translateX(70px) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Água-viva Mágica Flutuante no Fundo */
+        .jellyfish {
+            position: absolute;
+            width: 80px;
+            height: 120px;
+            opacity: 0.12;
+            z-index: 1;
+            pointer-events: none;
+            animation: floatJelly 15s infinite ease-in-out;
+        }
+
+        .jelly-1 {
+            top: 15%;
+            left: 5%;
+        }
+
+        .jelly-2 {
+            bottom: 15%;
+            right: 5%;
+            animation-duration: 18s;
+            animation-delay: -5s;
+        }
+
+        @keyframes floatJelly {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            50% {
+                transform: translateY(-30px) rotate(8deg) scale(1.05);
+            }
+        }
+
+        /* Elementos Decorativos de Silhuetas Marinhas */
+        .sea-decor {
+            position: absolute;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 1;
+            filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.2));
+            transition: all 0.5s ease;
+        }
+        
+        .coral-left {
+            bottom: 0;
+            left: -10px;
+            width: 200px;
+        }
+
+        .coral-right {
+            bottom: 0;
+            right: -10px;
+            width: 220px;
+        }
+
+        /* Card de Luxo do Convite */
+        .invite-card {
+            background: var(--glass-bg);
+            border: 2px solid var(--glass-border);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 580px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 
+                        0 0 40px rgba(100, 255, 218, 0.15),
+                        inset 0 0 15px rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 10;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.5s ease, box-shadow 0.5s ease;
+        }
+
+        .invite-card:hover {
+            border-color: rgba(100, 255, 218, 0.5);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 
+                        0 0 50px rgba(0, 242, 254, 0.25);
+        }
+
+        /* Linha Decorativa Interna Elegante */
+        .card-inner-border {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 1px solid rgba(223, 172, 64, 0.3);
+            border-radius: 20px;
+            pointer-events: none;
+            transition: border-color 0.5s ease;
+        }
+
+        .invite-card:hover .card-inner-border {
+            border-color: rgba(252, 211, 77, 0.6);
+        }
+
+        /* Ícone Estrela do Mar com Animação Premium no Hover */
+        .starfish-icon {
+            font-size: 2.8rem;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            display: inline-block;
+            filter: drop-shadow(0 0 10px rgba(223, 172, 64, 0.4));
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.6s ease;
+            cursor: pointer;
+        }
+
+        .invite-card:hover .starfish-icon {
+            transform: rotate(144deg) scale(1.15);
+            filter: drop-shadow(0 0 20px rgba(252, 211, 77, 0.8));
+        }
+
+        .tagline {
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--light-turquese);
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 0 8px rgba(100, 255, 218, 0.3);
+        }
+
+        /* Nome de Luxo */
+        .debutante-name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4.8rem;
+            background: linear-gradient(135deg, #ffffff 0%, #fcd34d 50%, #dfac40 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            margin-bottom: 5px;
+            line-height: 1.1;
+            transition: transform 0.4s ease;
+        }
+
+        .invite-card:hover .debutante-name {
+            transform: scale(1.02);
+        }
+
+        .subtitle-15 {
+            font-size: 1.1rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .invitation-text {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            line-height: 1.8;
+            margin: 20px auto;
+            max-width: 460px;
+            font-weight: 400;
+        }
+
+        .invitation-text strong {
+            color: #fff;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Caixas de Detalhes com Efeito de Vidro e Hover Dinâmico */
+        .event-details {
+            background: rgba(4, 13, 28, 0.7);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 35px 0;
+            border: 1px solid rgba(100, 255, 218, 0.15);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid transparent;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        /* Efeito Hover Individual nos Blocos de Informação */
+        .detail-item:hover {
+            background: rgba(100, 255, 218, 0.05);
+            transform: translateY(-5px);
+            border-color: rgba(100, 255, 218, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 242, 254, 0.1);
+        }
+
+        .detail-item.full-width {
+            grid-column: span 2;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            padding-top: 15px;
+            margin-top: 5px;
+        }
+
+        .detail-item.full-width:hover {
+            border-color: rgba(100, 255, 218, 0.3);
+        }
+
+        .detail-icon {
+            font-size: 1.6rem;
+            color: var(--light-turquese);
+            margin-bottom: 10px;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), color 0.4s ease;
+        }
+
+        /* Animação do ícone ao passar o mouse na caixa */
+        .detail-item:hover .detail-icon {
+            transform: scale(1.25) translateY(-3px);
+            color: var(--gold-light);
+            text-shadow: 0 0 10px rgba(252, 211, 77, 0.5);
+        }
+
+        .detail-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-gray);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .detail-val {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--text-light);
+            letter-spacing: 0.5px;
+        }
+
+        /* RSVP Elegante */
+        .rsvp-section {
+            margin-top: 40px;
+            text-align: left;
+        }
+
+        .rsvp-title {
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .rsvp-title i {
+            transition: transform 0.4s ease, color 0.4s ease;
+        }
+
+        .invite-card:hover .rsvp-title i {
+            transform: rotate(-10deg) scale(1.15);
+            color: var(--light-turquese);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-gray);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(4, 13, 28, 0.8);
+            border: 1.5px solid rgba(100, 255, 218, 0.15);
+            border-radius: 10px;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--light-turquese);
+            background: rgba(4, 13, 28, 0.95);
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.25);
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 8px;
+        }
+
+        .radio-option {
+            flex: 1;
+            position: relative;
+        }
+
+        .radio-option input[type="radio"] {
+            display: none;
+        }
+
+        .radio-label {
+            display: block;
+            text-align: center;
+            padding: 14px;
+            background: rgba(4, 13, 28, 0.6);
+            border: 1.5px solid rgba(100, 255, 218, 0.15);
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-gray);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            user-select: none;
+        }
+
+        /* Efeito de hover nas opções de rsvp */
+        .radio-label:hover {
+            border-color: rgba(100, 255, 218, 0.4);
+            color: #fff;
+            background: rgba(4, 13, 28, 0.8);
+        }
+
+        .radio-option input[type="radio"]:checked + .radio-label {
+            background: rgba(100, 255, 218, 0.12);
+            border-color: var(--light-turquese);
+            color: var(--light-turquese);
+            box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
+            font-weight: 700;
+        }
+
+        /* Botão Moderno com Brilho e Gradiente */
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #00f2fe 0%, #3066BE 100%);
+            color: #020813;
+            border: none;
+            padding: 16px;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            margin-top: 15px;
+            box-shadow: 0 4px 20px rgba(0, 242, 254, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efeito de Reflexo Correndo no Botão */
+        .btn-submit::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -50%;
+            width: 20%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 100%);
+            transform: skewX(-25deg);
+            transition: 0.75s;
+        }
+
+        .btn-submit:hover::after {
+            left: 120%;
+        }
+
+        .btn-submit:hover {
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 242, 254, 0.5), 0 0 15px rgba(100, 255, 218, 0.3);
+        }
+
+        .btn-submit:hover i {
+            transform: translate(5px, -3px) rotate(15deg);
+        }
+
+        .btn-submit i {
+            transition: transform 0.4s ease;
+        }
+
+        /* Modal de Sucesso de Alta Elegância */
+        .custom-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(2, 8, 19, 0.92);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            padding: 20px;
+        }
+
+        .custom-modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: radial-gradient(circle at top, #0f2d59 0%, #051329 100%);
+            border: 2px solid var(--gold-light);
+            border-radius: 24px;
+            padding: 45px 30px;
+            text-align: center;
+            max-width: 440px;
+            width: 100%;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.6), 
+                        0 0 30px rgba(223, 172, 64, 0.2);
+            transform: scale(0.85);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .custom-modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-icon {
+            font-size: 4rem;
+            color: var(--gold-light);
+            margin-bottom: 20px;
+            animation: pulse-glow 2.5s infinite ease-in-out;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 5px rgba(252,211,77,0.4)); }
+            50% { transform: scale(1.08); filter: drop-shadow(0 0 20px rgba(252,211,77,0.8)); }
+        }
+
+        .modal-title {
+            font-size: 1.6rem;
+            color: var(--gold-light);
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .modal-text {
+            color: var(--text-light);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .btn-close {
+            background: linear-gradient(135deg, #fcd34d 0%, #dfac40 100%);
+            border: none;
+            color: #020813;
+            padding: 12px 35px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(223, 172, 64, 0.3);
+        }
+
+        .btn-close:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(252, 211, 77, 0.5);
+            color: #000;
+        }
+
+        /* Responsividade Responsiva Avançada */
+        @media (max-width: 480px) {
+            .invite-card {
+                padding: 40px 20px;
+            }
+
+            .debutante-name {
+                font-size: 3.5rem;
+            }
+
+            .subtitle-15 {
+                font-size: 0.95rem;
+                letter-spacing: 4px;
+            }
+
+            .event-details {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                padding: 15px;
+            }
+
+            .detail-item.full-width {
+                grid-column: span 1;
+            }
+
+            .radio-group {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Efeito luminoso de fundo -->
+    <div class="ocean-floor"></div>
+
+    <!-- Bolhas animadas de fundo -->
+    <div class="bubbles" id="bubblesContainer"></div>
+
+    <!-- Água-viva 1 -->
+    <svg class="jellyfish jelly-1" viewBox="0 0 100 150" fill="currentColor" color="#00f2fe">
+        <path d="M50,10 C20,10 20,40 20,50 C20,55 25,60 30,58 C35,56 40,62 50,60 C60,62 65,56 70,58 C75,60 80,55 80,50 C80,40 80,10 50,10 Z" opacity="0.6"/>
+        <path d="M30,58 Q35,80 25,110 T35,140" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M40,60 Q42,90 48,115 T40,145" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M50,60 Q52,85 58,110 T52,138" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M60,60 Q58,90 64,120 T58,142" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M70,58 Q65,80 75,110 T65,140" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+
+    <!-- Água-viva 2 -->
+    <svg class="jellyfish jelly-2" viewBox="0 0 100 150" fill="currentColor" color="#64ffda">
+        <path d="M50,10 C20,10 20,40 20,50 C20,55 25,60 30,58 C35,56 40,62 50,60 C60,62 65,56 70,58 C75,60 80,55 80,50 C80,40 80,10 50,10 Z" opacity="0.6"/>
+        <path d="M30,58 Q35,80 25,110 T35,140" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M40,60 Q42,90 48,115 T40,145" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M50,60 Q52,85 58,110 T52,138" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M60,60 Q58,90 64,120 T58,142" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M70,58 Q65,80 75,110 T65,140" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+
+    <!-- Coral Decorativo Esquerdo (SVG Inline) -->
+    <svg class="sea-decor coral-left" viewBox="0 0 100 100" fill="currentColor" color="#64ffda">
+        <path d="M10,90 Q20,60 15,30 Q12,15 5,10 Q12,20 18,35 Q22,50 25,90 M25,90 Q35,50 30,25 Q27,10 20,5 Q28,12 32,30 Q36,48 38,90 M38,90 Q50,40 52,20 Q54,10 48,2 Q56,12 55,25 Q54,45 48,90 M48,90 Q65,45 68,30 Q70,20 65,12 Q72,20 71,35 Q69,50 58,90 M58,90 Q80,55 85,45 Q90,38 85,30 Q92,40 88,52 Q82,65 68,90" />
+    </svg>
+
+    <!-- Coral Decorativo Direito (SVG Inline) -->
+    <svg class="sea-decor coral-right" viewBox="0 0 100 100" fill="currentColor" color="#dfac40">
+        <path d="M90,90 Q80,60 85,30 Q88,15 95,10 Q88,20 82,35 Q78,50 75,90 M75,90 Q65,50 70,25 Q73,10 80,5 Q72,12 68,30 Q64,48 62,90 M62,90 Q50,40 48,20 Q46,10 52,2 Q44,12 45,25 Q46,45 52,90 M52,90 Q35,45 32,30 Q30,20 35,12 Q28,20 29,35 Q31,50 42,90 M42,90 Q20,55 15,45 Q10,38 15,30 Q8,40 12,52 Q18,65 32,90" />
+    </svg>
+
+    <!-- Cartão Principal do Convite -->
+    <div class="invite-card">
+        
+        <!-- Moldura elegante interna -->
+        <div class="card-inner-border"></div>
+        
+        <!-- Ícone Estrela do Mar -->
+        <div class="starfish-icon" title="Toque ou passe o mouse em mim!">
+            <i class="fa-solid fa-starfish"></i>
+        </div>
+
+        <div class="tagline">Você é o nosso convidado especial!</div>
+        
+        <h1 class="debutante-name">Izabelle Souza</h1>
+        
+        <p class="subtitle-15">Meus 15 Anos</p>
+
+        <p class="invitation-text">
+            Família e amigos, preparem-se para celebrar uma noite mágica sob as ondas. Vou comemorar meu aniversário de <strong>15 Anos</strong> e ficarei extremamente feliz com a sua valiosa presença neste oceano de felicidade!
+        </p>
+
+        <!-- Informações do Evento -->
+        <div class="event-details">
+            <div class="detail-item">
+                <i class="fa-regular fa-calendar detail-icon"></i>
+                <span class="detail-title">Data</span>
+                <span class="detail-val">20 de Junho de 2026</span>
+            </div>
+            <div class="detail-item">
+                <i class="fa-regular fa-clock detail-icon"></i>
+                <span class="detail-title">Horário</span>
+                <span class="detail-val">20:00 Horas</span>
+            </div>
+            <div class="detail-item full-width">
+                <i class="fa-solid fa-location-dot detail-icon"></i>
+                <span class="detail-title">Local do Evento</span>
+                <span class="detail-val">JL Espaço de Evento</span>
+                <span class="detail-val" style="font-weight: 500; font-size: 0.8rem; color: var(--text-gray); margin-top: 4px;">Rua ES 07 Qd 36 Lt 22 Jardim Escala</span>
+            </div>
+        </div>
+
+        <!-- Seção de RSVP (Confirmação de Presença) -->
+        <div class="rsvp-section">
+            <h3 class="rsvp-title">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                Confirme sua Presença
+            </h3>
+            
+            <!-- Formulário com integração Formspree -->
+            <form id="rsvpForm" action="https://formspree.io/f/SEU_FORM_ID_AQUI" method="POST">
+                
+                <!-- Assunto customizado do e-mail no Formspree -->
+                <input type="hidden" name="_subject" value="Nova Confirmação de Presença - Izabelle Souza!">
+
+                <div class="form-group">
+                    <label class="form-label" for="guestName">Seu Nome Completo</label>
+                    <input type="text" id="guestName" name="Nome Completo" class="form-input" placeholder="Ex: Maria de Souza" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="guestAmount">Quantidade de Acompanhantes (com você)</label>
+                    <input type="number" id="guestAmount" name="Quantidade de Pessoas" class="form-input" min="1" max="10" value="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Você irá comparecer?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" name="Status de Presenca" id="willGo" value="Confirmado" checked>
+                            <label class="radio-label" for="willGo">
+                                <i class="fa-solid fa-circle-check" style="margin-right: 5px;"></i>Sim, irei!
+                            </label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" name="Status de Presenca" id="wontGo" value="Infelizmente nao podera comparecer">
+                            <label class="radio-label" for="wontGo">
+                                <i class="fa-solid fa-circle-xmark" style="margin-right: 5px;"></i>Não poderei ir
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span id="btnText">Enviar Confirmação</span> <i class="fa-solid fa-paper-plane" id="btnIcon"></i>
+                </button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Modal de Sucesso Customizado -->
+    <div class="custom-modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon" id="successIcon">
+                <i class="fa-solid fa-starfish"></i>
+            </div>
+            <h2 class="modal-title" id="modalTitle">Mensagem Enviada!</h2>
+            <p class="modal-text" id="modalText">Sua confirmação de presença foi enviada com sucesso para o fundo do mar!</p>
+            <button class="btn-close" onclick="closeModal()">Ótimo</button>
+        </div>
+    </div>
+
+    <!-- Lógica em JavaScript -->
+    <script>
+        // Criação dinâmica de bolhas de fundo
+        function createBubbles() {
+            const container = document.getElementById('bubblesContainer');
+            const numberOfBubbles = 20;
+
+            for (let i = 0; i < numberOfBubbles; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                const size = Math.random() * 20 + 8;
+                const leftPosition = Math.random() * 100;
+                const animationDelay = Math.random() * 10;
+                const animationDuration = Math.random() * 8 + 7;
+
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.left = `${leftPosition}%`;
+                bubble.style.animationDelay = `${animationDelay}s`;
+                bubble.style.animationDuration = `${animationDuration}s`;
+
+                container.appendChild(bubble);
+            }
+        }
+
+        window.onload = function() {
+            createBubbles();
+        };
+
+        // Lógica de envio com AJAX para Formspree (sem sair da página)
+        const rsvpForm = document.getElementById('rsvpForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+        const btnIcon = document.getElementById('btnIcon');
+        
+        const successModal = document.getElementById('successModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalText = document.getElementById('modalText');
+        const successIcon = document.getElementById('successIcon');
+
+        rsvpForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Verifica se a chave padrão ainda está no action do formulário
+            const actionUrl = rsvpForm.getAttribute('action');
+            if (actionUrl.includes('SEU_FORM_ID_AQUI')) {
+                modalTitle.textContent = "ID do Formspree Faltando! ⚠️";
+                modalText.innerHTML = "Por favor, abra o arquivo <strong>index.html</strong> e substitua o texto <code>SEU_FORM_ID_AQUI</code> pelo ID do formulário que você criou na sua conta do Formspree.";
+                successIcon.innerHTML = '<i class="fa-solid fa-triangle-exclamation" style="color: #dfac40;"></i>';
+                successModal.classList.add('active');
+                return;
+            }
+
+            // Animação de carregamento no botão
+            btnText.textContent = "Enviando...";
+            btnIcon.className = "fa-solid fa-spinner fa-spin";
+            submitBtn.disabled = true;
+
+            const formData = new FormData(rsvpForm);
+            
+            // Faz a requisição de envio direto para o Formspree em segundo plano
+            fetch(actionUrl, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(async (response) => {
+                if (response.ok) {
+                    // Sucesso no envio
+                    const name = document.getElementById('guestName').value;
+                    const amount = document.getElementById('guestAmount').value;
+                    const attendance = document.querySelector('input[name="Status de Presenca"]:checked').value;
+
+                    if (attendance === 'Confirmado') {
+                        modalTitle.textContent = "Presença Confirmada! 🧜‍♀️";
+                        modalText.innerHTML = `Que alegria, <strong>${name}</strong>! Sua presença e de seus acompanhantes (Total: ${amount}) está confirmada para este dia mágico de 15 anos da Izabelle. Prepare-se para mergulhar neste sonho! 🌟✨<br><br><small style="color: var(--text-gray);">A confirmação foi enviada para o Formspree e você receberá no seu e-mail!</small>`;
+                    } else {
+                        modalTitle.textContent = "Sentiremos sua falta 💙";
+                        modalText.innerHTML = `Ah, que pena, <strong>${name}</strong>! Sentiremos muito a sua falta nessa noite mágica sob as ondas. Agradecemos imensamente por nos avisar!<br><br><small style="color: var(--text-gray);">A notificação de recusa foi enviada com sucesso ao Formspree.</small>`;
+                    }
+                    successIcon.innerHTML = '<i class="fa-solid fa-starfish"></i>';
+                } else {
+                    // Erro retornado pelo Formspree
+                    modalTitle.textContent = "Ops! Ocorreu um erro";
+                    modalText.textContent = "Não conseguimos enviar para o Formspree agora. Verifique se o seu Form ID está correto ou se o formulário está ativo.";
+                    successIcon.innerHTML = '<i class="fa-solid fa-circle-xmark" style="color: #ff4a4a;"></i>';
+                }
+            })
+            .catch(error => {
+                // Erro de rede ou internet
+                modalTitle.textContent = "Erro de Conexão";
+                modalText.textContent = "Parece que você está sem conexão com a internet para enviar os dados. Tente novamente.";
+                successIcon.innerHTML = '<i class="fa-solid fa-wifi" style="color: #ff4a4a;"></i>';
+            })
+            .then(() => {
+                // Restaura o botão e mostra o modal informativo
+                btnText.textContent = "Enviar Confirmação";
+                btnIcon.className = "fa-solid fa-paper-plane";
+                submitBtn.disabled = false;
+                successModal.classList.add('active');
+                rsvpForm.reset();
+            });
+        });
+
+        function closeModal() {
+            successModal.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
